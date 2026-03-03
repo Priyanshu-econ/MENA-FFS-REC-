@@ -1,0 +1,69 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Poojan\Desktop\Important\Research\2025\MENA FFS\Data\RETFP.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}17 Dec 2025, 15:51:28
+
+{com}. encode Country, gen(countryID)
+
+. xtset countryID Year
+{res}
+{col 1}{txt:Panel variable: }{res:countryID}{txt: (strongly balanced)}
+{p 1 16 2}{txt:Time variable: }{res:Year}{txt:, }{res:{bind:2015}}{txt: to }{res:{bind:2021}}{p_end}
+{txt}{col 10}Delta: {res}1 unit
+
+{com}.  gen dLogCPI = D.LogCPI
+{txt}(10 missing values generated)
+
+{com}. gen dLogNRR = D.LogNRR
+{txt}(10 missing values generated)
+
+{com}.  gen dLogFFS = D.LogFFS
+{txt}(10 missing values generated)
+
+{com}. gen dLogGDP = D.LogGDP
+{txt}(10 missing values generated)
+
+{com}. gen contrib_NRR =  0.147132  * dLogNRR
+{txt}(10 missing values generated)
+
+{com}. gen contrib_GDP = -1.843142  * dLogGDP
+{txt}(10 missing values generated)
+
+{com}. gen contrib_FFS = -0.411108  * dLogFFS
+{txt}(10 missing values generated)
+
+{com}. gen contrib_CPI =  4.833087  * dLogCPI
+{txt}(10 missing values generated)
+
+{com}. gen RETFP = dlogREC - (contrib_NRR + contrib_GDP + contrib_FFS + contrib_CPI)
+{err}dlogREC not found
+{txt}{search r(111), local:r(111);}
+
+{com}. gen dlogREC = D.logREC
+{txt}(10 missing values generated)
+
+{com}. gen RETFP = dlogREC - (contrib_NRR + contrib_GDP + contrib_FFS + contrib_CPI)
+{txt}(10 missing values generated)
+
+{com}. summ dlogREC contrib_NRR contrib_GDP contrib_FFS contrib_CPI RETFP
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 5}dlogREC {c |}{res}         60    .1218309    .2445139  -.2625628   .9810693
+{txt}{space 1}contrib_NRR {c |}{res}         60    .0004989     .024407  -.1287639   .0430053
+{txt}{space 1}contrib_GDP {c |}{res}         60    .0002827    .0378647  -.1003881   .1204265
+{txt}{space 1}contrib_FFS {c |}{res}         60   -.0037411    .0284321  -.0886738   .0538156
+{txt}{space 1}contrib_CPI {c |}{res}         60    .0031848    .1310333    -.37414   .3506437
+{txt}{hline 13}{c +}{hline 57}
+{space 7}RETFP {c |}{res}         60    .1216056    .2949626  -.3932481   1.342684
+
+{com}. save "C:\Users\Poojan\Desktop\Important\Research\2025\MENA FFS\Data\RETFP.dta"
+{txt}{p 0 4 2}
+file {bf}
+C:\Users\Poojan\Desktop\Important\Research\2025\MENA FFS\Data\RETFP.dta{rm}
+saved
+{p_end}
+
+{com}. exit

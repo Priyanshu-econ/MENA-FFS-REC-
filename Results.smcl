@@ -1,0 +1,275 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Poojan\Desktop\MENA\Data\Results.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}27 Jul 2025, 18:47:07
+
+{com}. encode Country, gen(countryID0
+{err}) required
+{txt}{search r(100), local:r(100);}
+
+{com}.  encode Country, gen(countryID)
+
+. xtset countryID Year
+{res}
+{col 1}{txt:Panel variable: }{res:countryID}{txt: (strongly balanced)}
+{p 1 16 2}{txt:Time variable: }{res:Year}{txt:, }{res:{bind:2015}}{txt: to }{res:{bind:2021}}{p_end}
+{txt}{col 10}Delta: {res}1 unit
+
+{com}. destring _all, replace force
+{txt}Year already numeric; no {res}replace
+{txt}Country: contains nonnumeric characters; {res}replaced {txt}as {res}byte
+{txt}(112 missing values generated)
+{res}{txt}FFS already numeric; no {res}replace
+{txt}REO already numeric; no {res}replace
+{txt}COCEstimate already numeric; no {res}replace
+{txt}GDPgrowthannual already numeric; no {res}replace
+{txt}NRR already numeric; no {res}replace
+{txt}countryID already numeric; no {res}replace
+
+{com}. xtcips REO, maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}REO
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}Individual{res} ti{txt} were{res} truncated{txt} during the aggregation process
+
+{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS* = {res}   -2.927{txt}        N,T = ({res}16{txt},{res}7{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.15{col 31}{space 2}    -2.29{col 42}{space 2}    -2.56
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcips d.REO, maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}D.REO
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}Individual{res} ti{txt} were{res} truncated{txt} during the aggregation process
+
+{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS* = {res}   -3.295{txt}        N,T = ({res}16{txt},{res}6{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.15{col 31}{space 2}    -2.29{col 42}{space 2}    -2.56
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcips FFS, maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}FFS
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS = {res}   -1.652{txt}        N,T = ({res}16{txt},{res}7{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.18{col 31}{space 2}    -2.33{col 42}{space 2}    -2.64
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcips d.FFS, maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}D.FFS
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}Individual{res} ti{txt} were{res} truncated{txt} during the aggregation process
+
+{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS* = {res}   -2.425{txt}        N,T = ({res}16{txt},{res}6{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.15{col 31}{space 2}    -2.29{col 42}{space 2}    -2.56
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcips  COCEstimate , maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}COCEstimate
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}Individual{res} ti{txt} were{res} truncated{txt} during the aggregation process
+
+{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS* = {res}   -2.661{txt}        N,T = ({res}16{txt},{res}7{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.15{col 31}{space 2}    -2.29{col 42}{space 2}    -2.56
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcips  d.COCEstimate , maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}D.COCEstimate
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}Individual{res} ti{txt} were{res} truncated{txt} during the aggregation process
+
+{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS* = {res}   -1.987{txt}        N,T = ({res}16{txt},{res}6{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.15{col 31}{space 2}    -2.29{col 42}{space 2}    -2.56
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcips  GDPgrowthannual , maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}GDPgrowthannual
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS = {res}   -1.744{txt}        N,T = ({res}16{txt},{res}7{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.18{col 31}{space 2}    -2.33{col 42}{space 2}    -2.64
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcips  d.GDPgrowthannual , maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}D.GDPgrowthannual
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}Individual{res} ti{txt} were{res} truncated{txt} during the aggregation process
+
+{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS* = {res}   -2.938{txt}        N,T = ({res}16{txt},{res}6{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.15{col 31}{space 2}    -2.29{col 42}{space 2}    -2.56
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcips  NRR , maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}NRR
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS = {res}   -0.910{txt}        N,T = ({res}16{txt},{res}7{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.18{col 31}{space 2}    -2.33{col 42}{space 2}    -2.64
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcips  d.NRR , maxlags(2) bglags(2)
+
+{txt}Pesaran Panel Unit Root Test with cross-sectional and first difference mean included for {res}D.NRR
+{txt}Deterministics chosen: {res}constant
+
+{txt}Dynamics: lags criterion decision{res} General to Particular {txt}based on{res} F joint test
+
+{txt}Individual{res} ti{txt} were{res} truncated{txt} during the aggregation process
+
+{bf:H0 (homogeneous non-stationary):}{res} bi = 0{txt} for all{res} i
+
+{txt}CIPS* = {res}   -2.249{txt}        N,T = ({res}16{txt},{res}6{txt})
+{res}{txt}{hline 19}{c TT}{hline 10}{hline 11}{hline 11}
+{col 20}{c |}       10%{col 31}         5%{col 42}         1%
+{hline 19}{c +}{hline 10}{hline 11}{hline 11}
+Critical values at {c |}{col 20}{res}{space 1}    -2.15{col 31}{space 2}    -2.29{col 42}{space 2}    -2.56
+{txt}{hline 19}{c BT}{hline 10}{hline 11}{hline 11}
+
+{com}. xtcointtest kao REO FFS COCEstimate NRR GDPgrowthannual, demean
+{res}
+{txt}Kao test for cointegration
+{hline 26}
+H0: No cointegration{col 45}Number of panels{col 68}={col 69}{res}     16
+{txt}Ha: All panels are cointegrated{col 45}Number of periods{col 68}={col 69}{res}      5
+
+{txt}Cointegrating vector: {res}Same
+{txt}Panel means: {res}{col 23}Included{txt}{col 45}Kernel: {res}{col 63}Bartlett
+{txt}Time trend: {res}{col 23}Not included{txt}{col 45}Lags: {res}{col 62} 1.88{txt} ({res}Newey–West{txt})
+AR parameter: {res}{col 23}Same{txt}{col 45}Augmented lags:{res}{col 63}1 
+
+{txt}Cross-sectional means removed
+{hline 78}
+{col 45}Statistic{col 63}p-value
+{hline 78}
+{col 2}Modified Dickey–Fuller t{res}{col 45}  4.2249{col 63}0.0000
+{txt}{col 2}Dickey–Fuller t{res}{col 45}  6.8838{col 63}0.0000
+{txt}{col 2}Augmented Dickey–Fuller t{res}{col 45}  6.5903{col 63}0.0000
+{txt}{col 2}Unadjusted modified Dickey–Fuller t{res}{col 45}  0.9157{col 63}0.1799
+{txt}{col 2}Unadjusted Dickey–Fuller t{res}{col 45}  0.8343{col 63}0.2021
+{txt}{hline 78}
+
+{com}. xtcointtest pedroni REO FFS COCEstimate NRR GDPgrowthannual, demean
+{res}
+{txt}Pedroni test for cointegration
+{hline 30}
+H0: No cointegration{col 45}Number of panels{col 68}={col 69}{res}     16
+{txt}Ha: All panels are cointegrated{col 45}Number of periods{col 68}={col 69}{res}      6
+
+{txt}Cointegrating vector: {res}Panel specific
+{txt}Panel means: {res}{col 23}Included{txt}{col 45}Kernel: {res}{col 63}Bartlett
+{txt}Time trend: {res}{col 23}Not included{txt}{col 45}Lags: {res}{col 62} 2.00{txt} ({res}Newey–West{txt})
+AR parameter: {res}{col 23}Panel specific{txt}{col 45}Augmented lags:{res}{col 63}1 
+
+{txt}Cross-sectional means removed
+{hline 78}
+{col 45}Statistic{col 63}p-value
+{hline 78}
+{col 2}Modified Phillips–Perron t{res}{col 43}    6.1249{col 63}0.0000
+{txt}{col 2}Phillips–Perron t{res}{col 43}  -14.0324{col 63}0.0000
+{txt}{col 2}Augmented Dickey–Fuller t{res}{col 43}  -16.4714{col 63}0.0000
+{txt}{hline 78}
+
+{com}. xtcointtest westerlund REO FFS COCEstimate NRR GDPgrowthannual, demean
+{res}
+{txt}Westerlund test for cointegration
+{hline 33}
+H0: No cointegration{col 45}Number of panels{col 68}={col 69}{res}     16
+{txt}Ha: Some panels are cointegrated{col 45}Number of periods{col 68}={col 69}{res}      7
+
+{txt}Cointegrating vector: {res}Panel specific
+{txt}Panel means: {res}{col 23}Included
+{txt}Time trend: {res}{col 23}Not included
+{txt}AR parameter: {res}{col 23}Panel specific
+
+{txt}Cross-sectional means removed
+{hline 78}
+{col 45}Statistic{col 63}p-value
+{hline 78}
+{col 2}Variance ratio{res}{col 43}    7.0023{col 63}0.0000
+{txt}{hline 78}
+
+{com}. save "C:\Users\Poojan\Desktop\MENA\Data\Data.dta"
+{txt}{p 0 4 2}
+file {bf}
+C:\Users\Poojan\Desktop\MENA\Data\Data.dta{rm}
+saved
+{p_end}
+
+{com}. exit
